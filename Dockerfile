@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:edge
 RUN apk add --no-cache clang musl-dev curl meson ninja pkgconfig git nasm
 RUN git clone --branch 1.3.0 --depth 1 https://code.videolan.org/videolan/dav1d.git /dav1d_src
 ENV PKG_CONFIG_PATH=/dav1d/lib/pkgconfig
