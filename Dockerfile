@@ -6,5 +6,8 @@ ENV LD_LIBRARY_PATH=/dav1d/lib
 WORKDIR /dav1d_src
 RUN meson build -Dprefix=/dav1d -Denable_tools=false -Denable_examples=false -Ddefault_library=static --buildtype release
 RUN ninja -C build && ninja -C build install
+
+FROM alpine:edge
+COPY --from=0 /dav1d /dav1d
 WORKDIR /dav1d
 CMD ["sh"]
